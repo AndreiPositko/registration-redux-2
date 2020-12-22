@@ -1,0 +1,16 @@
+.main__page {
+    margin: 0;
+    min-width: 960px;
+    font-size: 32px;
+    line-height: 32px;
+    color: #000;
+    background-color: #fff;
+    background-image: url('./img/hero-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
