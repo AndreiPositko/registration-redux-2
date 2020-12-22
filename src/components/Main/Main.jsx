@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './style.module.scss';
 import Header from './components/Header';
-import Title from './styled';
+import MainStyled from './styled';
 
 import { useDispatch } from 'react-redux';
 import { logOut } from '../../store/user.actions';
@@ -12,9 +12,9 @@ export default function Main() {
 
     return (
         <div className={styles.main__page}>
-            <Title>Main Page</Title>
+            <MainStyled.Title>Main Page</MainStyled.Title>
             <Header />
-            <button onClick={()=> dispatch(logOut())}>LogOut</button>
+            <MainStyled.BtnLogout onClick={()=> dispatch(logOut())}>LogOut</MainStyled.BtnLogout>
         </div>
     )
 }
