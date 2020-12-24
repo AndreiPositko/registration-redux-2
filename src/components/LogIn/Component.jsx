@@ -1,12 +1,16 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
 
 import { logIn, logOut } from '../../store/auth/actions';
 import routes from '../../constants/routes';
 
 import styles from './style.module.scss';
 import LogInStyled from './styled';
+
+toast.configure();
 
 const LogIn = ({history}) =>  {
 
@@ -20,12 +24,17 @@ const LogIn = ({history}) =>  {
     }
     })  
 
+    const notify = () => {
+        toast.error('Wrong credentials!', {position: toast.POSITION.TOP_CENTER, autoClose: 2000});
+    }
+
     const onSubmit = (data) => {
         if (data.userName === userName && data.password === password) {
             dispatch(logIn());
             history.push(routes.main);
         } else {
             dispatch(logOut());
+            notify();
         }
     }
 
