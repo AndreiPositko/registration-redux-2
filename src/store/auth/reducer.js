@@ -1,14 +1,14 @@
-import { AUTH_DONE, AUTH_FAILED } from './constants/user.constans.js';
+import { AUTH_SUCCESS, AUTH_FAILED } from './constants';
 
 const initialState = {
   userName: 'admin',
   password: '12345',
-  isLoggedIn: false,
+  isLoggedIn: true,
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case AUTH_DONE:
+    case AUTH_SUCCESS:
       return {
         ...state,
         isLoggedIn: true,
@@ -19,7 +19,7 @@ const authReducer = (state = initialState, action) => {
         ...state,
         isLoggedIn: false,
       };
-    
+
     default:
       return {
         ...state,

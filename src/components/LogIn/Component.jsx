@@ -2,30 +2,31 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { logIn, logOut } from '../../store/user.actions';
+import { logIn, logOut } from '../../store/auth/actions';
+import routes from '../../constants/routes';
 
 import styles from './style.module.scss';
 import LogInStyled from './styled';
 
-const LogIn = () =>  {
+const LogIn = ({history}) =>  {
 
     const { register, handleSubmit, errors } = useForm();
     const dispatch = useDispatch();
 
-    const { userName, password } = useSelector(state =>
-    ({
-        userName: state.userName,
-        password: state.password,
-        isLoggedIn: state.isLoggedIn,
-    }))
+    const { userName, password } = useSelector(state => {
+        return {
+        userName: state.auth.userName,
+        password: state.auth.password,
+    }
+    })  
 
     const onSubmit = (data) => {
         if (data.userName === userName && data.password === password) {
             dispatch(logIn());
+            history.push(routes.main);
         } else {
             dispatch(logOut());
         }
-        console.log(data);
     }
 
     return (

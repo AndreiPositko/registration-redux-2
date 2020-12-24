@@ -1,7 +1,8 @@
 
 const routes = {
-    auth: '/auth',
-    main: '/',
-}
+  login: '/login',
+  contacts: '/contacts',
+  main: '/',
+};
 
 export default routes;

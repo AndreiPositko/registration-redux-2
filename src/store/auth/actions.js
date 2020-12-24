@@ -1,10 +1,9 @@
-import { AUTH_DONE, AUTH_FAILED } from './constants/user.constans';
+import { AUTH_SUCCESS, AUTH_FAILED } from './constants';
 
 export const logIn = () => ({
-  type: AUTH_DONE,
+  type: AUTH_SUCCESS,
 });
 
 export const logOut = () => ({
   type: AUTH_FAILED,
 });
-
