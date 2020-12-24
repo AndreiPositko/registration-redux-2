@@ -3,7 +3,7 @@ import { AUTH_SUCCESS, AUTH_FAILED } from './constants';
 const initialState = {
   userName: 'admin',
   password: '12345',
-  isLoggedIn: true,
+  isLoggedIn: false,
 };
 
 const authReducer = (state = initialState, action) => {
